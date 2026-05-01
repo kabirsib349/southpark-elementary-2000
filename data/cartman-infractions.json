@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "date": "15/09/2001",
+    "rule": "Règle n°3 - Respect des camarades",
+    "description": "A traité Kyle de 'stupid Jew' 14 fois en une seule journée",
+    "punishment": "Retenue 1h",
+    "cartmanReaction": "Screw you guys, I'm going home.",
+    "severity": "haute",
+    "gif": "angry"
+  },
+  {
+    "id": 2,
+    "date": "22/09/2001",
+    "rule": "Règle n°7 - Interdiction de manipuler ses camarades",
+    "description": "A convaincu Butters qu'il était un robot pendant 3 semaines",
+    "punishment": "Retenue 3h + appel aux parents",
+    "cartmanReaction": "Respect my authoritah!",
+    "severity": "critique",
+    "gif": "evil"
+  },
+  {
+    "id": 3,
+    "date": "01/10/2001",
+    "rule": "Règle n°12 - Interdiction d'apporter de la nourriture en classe",
+    "description": "A mangé 3 sachets de Cheesy Poofs pendant le cours de maths",
+    "punishment": "Confiscation des Cheesy Poofs",
+    "cartmanReaction": "Whateva! I do what I want!",
+    "severity": "moyenne",
+    "gif": "eating"
+  },
+  {
+    "id": 4,
+    "date": "10/10/2001",
+    "rule": "Règle n°1 - Respect de l'autorité",
+    "description": "A refusé d'obéir au Principal Victoria en criant 'I'm not your bitch!'",
+    "punishment": "Suspension 2 jours",
+    "cartmanReaction": "I'm not fat, I'm big-boned!",
+    "severity": "critique",
+    "gif": "angry"
+  },
+  {
+    "id": 5,
+    "date": "18/10/2001",
+    "rule": "Règle n°5 - Interdiction de monter des complots",
+    "description": "A organisé un faux club pour extorquer l'argent de déjeuner de ses camarades",
+    "punishment": "Retenue 1 semaine",
+    "cartmanReaction": "Goddamnit!",
+    "severity": "critique",
+    "gif": "evil"
+  },
+  {
+    "id": 6,
+    "date": "25/10/2001",
+    "rule": "Règle n°9 - Tenue vestimentaire appropriée",
+    "description": "Est venu en classe déguisé en Adolf Hitler pour Halloween",
+    "punishment": "Renvoi immédiat + thérapie obligatoire",
+    "cartmanReaction": "It was a costume! Geez!",
+    "severity": "critique",
+    "gif": "shocked"
+  },
+  {
+    "id": 7,
+    "date": "05/11/2001",
+    "rule": "Règle n°2 - Honnêteté",
+    "description": "A prétendu être handicapé pour gagner les Special Olympics",
+    "punishment": "Disqualification + excuses publiques",
+    "cartmanReaction": "I'm not fat, I have a glandular problem!",
+    "severity": "haute",
+    "gif": "lying"
+  },
+  {
+    "id": 8,
+    "date": "14/11/2001",
+    "rule": "Règle n°15 - Interdiction d'utiliser son téléphone en classe",
+    "description": "A passé 2h à appeler des gens pour leur dire qu'ils étaient 'totally gay'",
+    "punishment": "Confiscation du téléphone",
+    "cartmanReaction": "Whateva! I do what I want!",
+    "severity": "moyenne",
+    "gif": "phone"
+  },
+  {
+    "id": 9,
+    "date": "20/11/2001",
+    "rule": "Règle n°4 - Interdiction de menacer ses camarades",
+    "description": "A menacé Kyle de 'le faire souffrir' si il ne lui donnait pas 10 dollars",
+    "punishment": "Retenue + médiation",
+    "cartmanReaction": "Kyle is a dirty Jew and deserves it.",
+    "severity": "haute",
+    "gif": "angry"
+  },
+  {
+    "id": 10,
+    "date": "01/12/2001",
+    "rule": "Règle n°8 - Respect du matériel scolaire",
+    "description": "A dessiné des croix gammées sur tous les bureaux de la classe",
+    "punishment": "Nettoyage + suspension 3 jours",
+    "cartmanReaction": "It's a symbol of good luck in many cultures!",
+    "severity": "critique",
+    "gif": "evil"
+  }
+]

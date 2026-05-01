@@ -1,0 +1,106 @@
+{
+  "schoolYear": "2001-2002",
+  "events": [
+    {
+      "id": 1,
+      "date": "15/09/2001",
+      "title": "Rentree scolaire",
+      "type": "school",
+      "description": "Debut de l'annee scolaire. Kenny est deja mort une fois.",
+      "icon": "[BOOK]"
+    },
+    {
+      "id": 2,
+      "date": "31/10/2001",
+      "title": "Halloween",
+      "type": "event",
+      "description": "Sortie annulee suite a l'incident du costume de Cartman.",
+      "icon": "[HALLOWEEN]"
+    },
+    {
+      "id": 3,
+      "date": "15/11/2001",
+      "title": "Sortie au musee de Denver",
+      "type": "trip",
+      "description": "Sortie scolaire. Cartman a ete renvoye du bus a mi-chemin.",
+      "icon": "[BUS]"
+    },
+    {
+      "id": 4,
+      "date": "20/12/2001",
+      "title": "Vacances de Noel",
+      "type": "holiday",
+      "description": "2 semaines de vacances. Mr. Hankey est attendu.",
+      "icon": "[XMAS]"
+    },
+    {
+      "id": 5,
+      "date": "07/01/2002",
+      "title": "Rentree de Janvier",
+      "type": "school",
+      "description": "Kenny est revenu. Personne ne sait comment.",
+      "icon": "[BOOK]"
+    },
+    {
+      "id": 6,
+      "date": "14/02/2002",
+      "title": "Saint-Valentin",
+      "type": "event",
+      "description": "Stan a vomi sur Wendy. Encore.",
+      "icon": "<3"
+    },
+    {
+      "id": 7,
+      "date": "01/03/2002",
+      "title": "Sortie ski a Aspen",
+      "type": "trip",
+      "description": "Sortie au ski. Cartman a pretendu etre handicape pour prendre le telesiege prioritaire.",
+      "icon": "[SKI]"
+    },
+    {
+      "id": 8,
+      "date": "15/03/2002",
+      "title": "Journee Science Fair",
+      "type": "event",
+      "description": "Concours scientifique. Kyle a gagne, Cartman a triche.",
+      "icon": "[SCIENCE]"
+    },
+    {
+      "id": 9,
+      "date": "05/04/2002",
+      "title": "Vacances de Paques",
+      "type": "holiday",
+      "description": "1 semaine. L'Easter Bunny a ete vu avec Mr. Garrison.",
+      "icon": "[EASTER]"
+    },
+    {
+      "id": 10,
+      "date": "20/05/2002",
+      "title": "Journee sportive",
+      "type": "event",
+      "description": "Special Olympics de l'ecole. Cartman est INTERDIT de participation.",
+      "icon": "[SPORT]"
+    },
+    {
+      "id": 11,
+      "date": "15/06/2002",
+      "title": "Fin d'annee scolaire",
+      "type": "school",
+      "description": "Fin de l'annee. Kenny est mort 8 fois cette annee. Record battu.",
+      "icon": "[END]"
+    }
+  ],
+  "schedule": {
+    "monday": [
+      {"time": "08h00", "subject": "Mathematiques", "teacher": "Mr. Garrison"},
+      {"time": "09h00", "subject": "Lecture", "teacher": "Mr. Garrison"},
+      {"time": "10h00", "subject": "Recreation", "teacher": "-"},
+      {"time": "10h30", "subject": "Sciences", "teacher": "Mr. Garrison"},
+      {"time": "11h30", "subject": "Histoire", "teacher": "Mr. Garrison"},
+      {"time": "12h00", "subject": "Dejeuner chez Chef", "teacher": "Chef"},
+      {"time": "13h00", "subject": "Geographie", "teacher": "Mr. Garrison"},
+      {"time": "14h00", "subject": "Arts plastiques", "teacher": "Mr. Garrison"},
+      {"time": "15h00", "subject": "Fin des cours", "teacher": "-"}
+    ]
+  }
+}

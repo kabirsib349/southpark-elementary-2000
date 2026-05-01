@@ -1,0 +1,56 @@
+{
+  "week": "Semaine du 28 Avril au 2 Mai 2001",
+  "chefMessage": "Hello there children! This week I've prepared some of my finest dishes. Remember, good food is like good love - it comes from the heart! ~Chef",
+  "days": [
+    {
+      "day": "Lundi",
+      "date": "28/04",
+      "starter": "Soupe de tomates mysterieuse",
+      "main": "Sloppy Joe special Chef",
+      "dessert": "Pudding au chocolat",
+      "chefSong": "Chocolate Salty Balls",
+      "rating": 4,
+      "emoji": "[SOUP]"
+    },
+    {
+      "day": "Mardi",
+      "date": "29/04",
+      "starter": "Salade de chou facon Colorado",
+      "main": "Burger de boeuf avec frites",
+      "dessert": "Tarte aux pommes",
+      "chefSong": "I'm Gonna Make Love to You Woman",
+      "rating": 5,
+      "emoji": "[BURGER]"
+    },
+    {
+      "day": "Mercredi",
+      "date": "30/04",
+      "starter": "Nuggets de poulet (Kenny en a mange 12)",
+      "main": "Pizza mystere (Cartman en a pris 4 parts)",
+      "dessert": "Glace a la vanille",
+      "chefSong": "Simultaneous",
+      "rating": 5,
+      "emoji": "[PIZZA]"
+    },
+    {
+      "day": "Jeudi",
+      "date": "01/05",
+      "starter": "Soupe de legumes du Colorado",
+      "main": "Spaghetti bolognaise de Chef",
+      "dessert": "Brownie au chocolat",
+      "chefSong": "Stinky Britches",
+      "rating": 3,
+      "emoji": "[PASTA]"
+    },
+    {
+      "day": "Vendredi",
+      "date": "02/05",
+      "starter": "Crudites avec sauce mysterieuse",
+      "main": "Fish & Chips du Colorado",
+      "dessert": "Cheesy Poofs (don de Cartman... suspect)",
+      "chefSong": "Love Gravy",
+      "rating": 4,
+      "emoji": "[FISH]"
+    }
+  ]
+}

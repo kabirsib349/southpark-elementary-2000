@@ -1,0 +1,27 @@
+{
+  "name": "south-park-elementary-2000",
+  "version": "1.0.0",
+  "description": "Site officiel de South Park Elementary - Style année 2000",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8000 -o",
+    "dev": "npx http-server -p 8000 -o",
+    "deploy:netlify": "netlify deploy --prod",
+    "deploy:vercel": "vercel --prod",
+    "deploy:surge": "surge ."
+  },
+  "keywords": [
+    "south-park",
+    "year-2000",
+    "retro",
+    "geocities",
+    "hackathon",
+    "defendhack"
+  ],
+  "author": "DefendHack Participant",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/username/south-park-elementary-2000"
+  }
+}

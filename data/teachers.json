@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Principal Victoria",
+    "role": "Directrice",
+    "photo": "images/teachers/victoria.png.webp",
+    "rating": 4,
+    "quote": "This is a very serious situation and we need to act accordingly.",
+    "description": "La directrice de South Park Elementary. Essaie de maintenir l'ordre dans le chaos total.",
+    "subject": "Direction",
+    "yearsAtSchool": 15,
+    "funFact": "A survécu à 47 crises causées par Cartman"
+  },
+  {
+    "id": 2,
+    "name": "Mr. Garrison",
+    "role": "Professeur principal",
+    "photo": "images/teachers/garrison.png.png",
+    "rating": 2,
+    "quote": "Does anyone know the answer? Anyone? Anyone at all?",
+    "description": "Le professeur le plus instable de South Park. A traversé de nombreuses... transformations.",
+    "subject": "Tout (mal)",
+    "yearsAtSchool": 12,
+    "funFact": "A été président des États-Unis à un moment"
+  },
+  {
+    "id": 3,
+    "name": "Mr. Mackey",
+    "role": "Conseiller scolaire",
+    "photo": "images/teachers/mackey.png.png",
+    "rating": 3,
+    "quote": "Drugs are bad, mmkay?",
+    "description": "Le conseiller scolaire avec une tête démesurément grosse. Mmkay.",
+    "subject": "Conseil & Orientation",
+    "yearsAtSchool": 10,
+    "funFact": "Dit 'mmkay' en moyenne 47 fois par conversation"
+  },
+  {
+    "id": 4,
+    "name": "Chef",
+    "role": "Cuisinier",
+    "photo": "images/teachers/chef.png.png",
+    "rating": 5,
+    "quote": "Hello there, children!",
+    "description": "Le cuisinier le plus sage de South Park. Donne des conseils de vie entre deux plats.",
+    "subject": "Arts culinaires & Sagesse",
+    "yearsAtSchool": 8,
+    "funFact": "Chante une chanson pour chaque situation de la vie"
+  },
+  {
+    "id": 5,
+    "name": "Ms. Crabtree",
+    "role": "Conductrice de bus",
+    "photo": "images/teachers/crabtree.png.webp",
+    "rating": 2,
+    "quote": "SIT DOWN AND SHUT UP!",
+    "description": "La conductrice de bus la plus terrifiante de South Park. Ne tolère aucun bruit.",
+    "subject": "Transport scolaire",
+    "yearsAtSchool": 20,
+    "funFact": "A un oiseau mort dans les cheveux depuis 1987"
+  }
+]

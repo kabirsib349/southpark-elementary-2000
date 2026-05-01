@@ -1,0 +1,410 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Site officiel de South Park Elementary - Année 2000">
+  <title>*** South Park Elementary - Site Officiel ***</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>SP</text></svg>">
+</head>
+<body>
+
+  <!-- IE POPUP -->
+  <div id="ie-popup" class="ie-popup" style="display:block;">
+    <div class="ie-popup-titlebar">
+      <span>/!\ Message de la decennie</span>
+      <button class="ie-popup-close" onclick="closeIEPopup()">X</button>
+    </div>
+    <div class="ie-popup-body">
+      <div class="ie-popup-icon">/!\</div>
+      <div>
+        <strong>Bienvenue sur le site officiel de South Park Elementary !</strong><br><br>
+        Ce site est optimisé pour Internet Explorer 6.0 et Netscape Navigator.<br>
+        Résolution recommandée : 800x600.<br><br>
+      </div>
+    </div>
+    <div class="ie-popup-buttons">
+      <button class="ie-popup-btn" onclick="closeIEPopup()">OUI !</button>
+    </div>
+  </div>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <marquee behavior="scroll" direction="left" scrollamount="5">
+      *** BREAKING NEWS : Kenny McCormick est <span id="kenny-status-ticker">mort</span> aujourd hui *** 
+      Cartman a encore enfreint 3 regles cette semaine *** 
+      Chef prepare des Chocolate Salty Balls vendredi *** 
+      Mr. Mackey rappelle : Les drogues c est mal, mmkay ? ***
+    </marquee>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-content">
+      <img src="https://media.tenor.com/images/d8c7e3c0e5f5c5a5e5f5c5a5e5f5c5a5/tenor.gif" alt="Fire GIF" class="header-gif" onerror="this.style.display='none'">
+      <div>
+        <h1 class="site-title">
+          *** South Park ***<br>Elementary
+        </h1>
+        <div class="site-subtitle">Mis en ligne : Janvier 2000</div>
+      </div>
+      <img src="https://media.tenor.com/images/d8c7e3c0e5f5c5a5e5f5c5a5e5f5c5a5/tenor.gif" alt="Fire GIF" class="header-gif" onerror="this.style.display='none'">
+    </div>
+    <div class="visitor-counter">
+      >> Visites : <span id="visitor-count">0000000</span>
+    </div>
+  </header>
+
+  <!-- NAVIGATION -->
+  <nav class="main-nav">
+    <a href="#" data-page="home" class="active" onclick="showPage('home'); return false;">>> ACCUEIL</a>
+    <a href="#" data-page="students" onclick="showPage('students'); return false;">>> ELEVES</a>
+    <a href="#" data-page="teachers" onclick="showPage('teachers'); return false;">>> PROFESSEURS</a>
+    <a href="#" data-page="cartman" onclick="showPage('cartman'); return false;">/!\ DOSSIER CARTMAN</a>
+    <a href="#" data-page="menu" onclick="showPage('menu'); return false;">>> CAFETERIA</a>
+    <a href="#" data-page="calendar" onclick="showPage('calendar'); return false;">>> CALENDRIER</a>
+    <a href="#" data-page="quotes" onclick="showPage('quotes'); return false;">>> CITATIONS</a>
+    <a href="#" data-page="guestbook" onclick="showPage('guestbook'); return false;">>> GUESTBOOK</a>
+  </nav>
+
+  <!-- MAIN CONTAINER -->
+  <div class="main-container">
+    
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      
+      <!-- WEATHER WIDGET -->
+      <div class="sidebar-widget">
+        <div class="sidebar-widget-title">*** METEO</div>
+        <div class="sidebar-widget-body weather-widget">
+          <div class="weather-temp">-5°C</div>
+          <div class="weather-desc">* Neige (comme toujours)</div>
+          <div style="font-size:10px; color:#666; margin-top:5px;">South Park, Colorado</div>
+        </div>
+      </div>
+
+      <!-- KENNY STATUS -->
+      <div class="sidebar-widget">
+        <div class="sidebar-widget-title">[X_X] STATUT KENNY</div>
+        <div class="sidebar-widget-body" style="text-align:center;">
+          <div class="kenny-status-display glow-red blink" style="font-size:16px; font-weight:bold; margin:10px 0;">
+            [X_X] MORT
+          </div>
+          <label class="kenny-toggle" style="display:flex; align-items:center; gap:8px; justify-content:center; cursor:pointer;">
+            <span style="font-size:10px;">Mort</span>
+            <label class="toggle-switch">
+              <input type="checkbox" id="kenny-main-toggle" onchange="toggleKenny(this)">
+              <span class="toggle-slider"></span>
+            </label>
+            <span style="font-size:10px;">Vivant</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- CLOCK -->
+      <div class="sidebar-widget">
+        <div class="sidebar-widget-title">[TIME] HORLOGE</div>
+        <div class="sidebar-widget-body" style="text-align:center;">
+          <div id="live-clock" style="font-size:18px; font-weight:bold; color:#00ffff; font-family:monospace;">00:00:00</div>
+        </div>
+      </div>
+
+      <!-- QUICK LINKS -->
+      <div class="sidebar-widget">
+        <div class="sidebar-widget-title">�� LIENS</div>
+        <div class="sidebar-widget-body" style="font-size:10px; line-height:1.8;">
+          <a href="https://southpark.cc.com" target="_blank" style="color:#00ffff; text-decoration:none;">🌐 South Park Studios</a><br>
+          <a href="#" onclick="alert('Page en construction !'); return false;" style="color:#00ffff; text-decoration:none;">📧 Nous contacter</a><br>
+          <a href="#" onclick="alert('Téléchargement indisponible !'); return false;" style="color:#00ffff; text-decoration:none;">💾 Télécharger Winamp</a><br>
+          <a href="#" onclick="alert('Compteur Geocities !'); return false;" style="color:#00ffff; text-decoration:none;">🔢 Ajouter un compteur</a>
+        </div>
+      </div>
+
+      <!-- UNDER CONSTRUCTION -->
+      <div style="text-align:center; margin-top:10px;">
+        <img src="https://web.archive.org/web/20091027053343/http://www.geocities.com/SiliconValley/Park/6707/construction.gif" alt="Under Construction" style="width:100%; max-width:150px; image-rendering:pixelated;" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%2250%22%3E%3Crect fill=%22%23ffff00%22 width=%22150%22 height=%2250%22/%3E%3Ctext x=%2275%22 y=%2230%22 text-anchor=%22middle%22 font-size=%2212%22 fill=%22%23000%22%3EUNDER CONSTRUCTION%3C/text%3E%3C/svg%3E'">
+      </div>
+
+    </aside>
+
+    <!-- CONTENT AREA -->
+    <main class="content-area">
+
+      <!-- HOME PAGE -->
+      <div id="page-home" class="page active">
+        
+        <div class="welcome-box">
+          <h2 class="rainbow-text" style="font-size:20px; margin-bottom:10px;">
+            *** BIENVENUE A SOUTH PARK ELEMENTARY ***
+          </h2>
+          <img src="images/principal-victoria.png.webp" alt="Principal Victoria" class="principal-photo" onerror="this.style.display='none'">
+          <p style="font-size:14px; line-height:1.6; color:#ffffff;">
+            Bonjour et bienvenue sur le site officiel de <strong class="glow-yellow">South Park Elementary</strong> !<br><br>
+            Je suis <strong>Principal Victoria</strong>, directrice de cet établissement depuis 1997.<br>
+            Ici, vous trouverez toutes les informations sur nos élèves, nos professeurs, notre cafétéria, et bien plus encore !
+          </p>
+          <div class="principal-quote">
+            "This is a very serious situation and we need to act accordingly."<br>
+            <span style="font-size:11px; color:#ffff66;">— Principal Victoria</span>
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <div class="panel">
+          <div class="panel-header">*** ACTUALITES DE L'ECOLE</div>
+          <div class="panel-body">
+            <ul style="font-size:13px; line-height:2; list-style:none; padding:0;">
+              <li>>>> <span class="blink new-badge">NEW</span> <strong>Kenny McCormick</strong> : Statut actuel = <span id="kenny-status-home" class="blink glow-red">[X_X] MORT</span></li>
+              <li>/!\ <strong>Eric Cartman</strong> a ete renvoye 3 fois cette semaine</li>
+              <li>>>> <strong>Chef</strong> prepare ses celebres Chocolate Salty Balls vendredi</li>
+              <li>>>> <strong>Mr. Garrison</strong> a encore change de personnalite</li>
+              <li>>>> Les resultats du concours scientifique sont disponibles (Kyle a gagne, Cartman a triche)</li>
+              <li>>>> Sortie ski a Aspen annulee suite a l'incident Cartman</li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:10px;">
+          <div class="panel">
+            <div class="panel-header">>> ELEVES</div>
+            <div class="panel-body" style="text-align:center;">
+              <div style="font-size:36px; font-weight:bold; color:#ffff00;">8</div>
+              <div style="font-size:12px; color:#aaaaaa;">eleves principaux</div>
+              <button class="btn-2000 btn-yellow" style="margin-top:10px;" onclick="showPage('students')">Voir tous</button>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header">>> PROFESSEURS</div>
+            <div class="panel-body" style="text-align:center;">
+              <div style="font-size:36px; font-weight:bold; color:#00ff00;">5</div>
+              <div style="font-size:12px; color:#aaaaaa;">membres du personnel</div>
+              <button class="btn-2000 btn-yellow" style="margin-top:10px;" onclick="showPage('teachers')">Voir tous</button>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header">/!\ INFRACTIONS</div>
+            <div class="panel-body" style="text-align:center;">
+              <div style="font-size:36px; font-weight:bold; color:#ff0000;">47</div>
+              <div style="font-size:12px; color:#aaaaaa;">par Eric Cartman</div>
+              <button class="btn-2000 btn-red" style="margin-top:10px;" onclick="showPage('cartman')">Voir le dossier</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- STUDENTS PAGE -->
+      <div id="page-students" class="page">
+        <div class="panel">
+          <div class="panel-header">>> NOS ELEVES</div>
+          <div class="panel-body">
+            <div style="margin-bottom:15px;">
+              <input type="text" placeholder="[?] Rechercher un eleve..." onkeyup="searchStudents(this.value)" style="width:100%; padding:8px; background:#000022; border:2px inset #444466; color:#ffffff; font-family:'Comic Sans MS'; font-size:13px;">
+            </div>
+            <div id="students-grid" class="students-grid">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TEACHERS PAGE -->
+      <div id="page-teachers" class="page">
+        <div class="panel">
+          <div class="panel-header">>> NOTRE EQUIPE PEDAGOGIQUE</div>
+          <div class="panel-body">
+            <div id="teachers-grid" class="teachers-grid">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARTMAN PAGE -->
+      <div id="page-cartman" class="page">
+        <div class="cartman-header">
+          <h2 style="color:#ff0000; font-size:24px; text-shadow:0 0 10px #ff0000; margin-bottom:10px;">
+            /!\ DOSSIER DISCIPLINAIRE : ERIC CARTMAN /!\
+          </h2>
+          <img src="images/students/cartman.png.png" alt="Eric Cartman" class="cartman-mugshot" onerror="this.style.display='none'">
+          <div style="margin-top:10px;">
+            <span style="font-size:14px; color:#ffcccc;">TOTAL DES INFRACTIONS :</span><br>
+            <span id="infraction-counter" class="infraction-counter">0</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">[LIST] LISTE DES INFRACTIONS</div>
+          <div class="panel-body" style="overflow-x:auto;">
+            <table class="infractions-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Règle enfreinte</th>
+                  <th>Description</th>
+                  <th>Gravité</th>
+                  <th>Punition</th>
+                  <th>Réaction de Cartman</th>
+                </tr>
+              </thead>
+              <tbody id="infractions-tbody">
+                <!-- Populated by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- MENU PAGE -->
+      <div id="page-menu" class="page">
+        <div class="panel">
+          <div class="panel-header">>> MENU DE LA CAFETERIA</div>
+          <div class="panel-body">
+            <div style="background:rgba(102,51,0,0.3); border:2px solid #996600; padding:15px; margin-bottom:15px; text-align:center;">
+              <div style="font-size:18px; font-weight:bold; color:#ffcc00; margin-bottom:8px;" id="menu-week">Semaine du...</div>
+              <div style="font-size:12px; font-style:italic; color:#ffeecc; line-height:1.6;" id="chef-message">
+                <!-- Populated by JS -->
+              </div>
+            </div>
+            <div id="menu-container" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:12px;">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CALENDAR PAGE -->
+      <div id="page-calendar" class="page">
+        <div class="panel">
+          <div class="panel-header">>> CALENDRIER SCOLAIRE</div>
+          <div class="panel-body">
+            <div id="calendar-grid" class="calendar-grid">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top:15px;">
+          <div class="panel-header">[TIME] EMPLOI DU TEMPS (LUNDI)</div>
+          <div class="panel-body" style="overflow-x:auto;">
+            <table class="schedule-table">
+              <thead>
+                <tr>
+                  <th>Heure</th>
+                  <th>Matière</th>
+                  <th>Professeur</th>
+                </tr>
+              </thead>
+              <tbody id="schedule-tbody">
+                <!-- Populated by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUOTES PAGE -->
+      <div id="page-quotes" class="page">
+        <div class="panel">
+          <div class="panel-header">>> GENERATEUR DE CITATIONS DE CARTMAN</div>
+          <div class="panel-body">
+            <div class="quote-box">
+              <div id="random-quote" class="quote-text" style="transition:opacity 0.3s;">
+                "Respect my authoritah!"
+              </div>
+            </div>
+            <div style="text-align:center;">
+              <button class="btn-2000 btn-red" onclick="showRandomQuote()" style="font-size:14px; padding:8px 20px;">
+                [?] NOUVELLE CITATION
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top:15px;">
+          <div class="panel-header">[LIST] TOUTES LES CITATIONS</div>
+          <div class="panel-body">
+            <button class="btn-2000 btn-yellow" onclick="renderAllQuotes()" style="margin-bottom:10px;">
+              [+] Afficher toutes les citations
+            </button>
+            <div id="all-quotes">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GUESTBOOK PAGE -->
+      <div id="page-guestbook" class="page">
+        <div class="panel">
+          <div class="panel-header">>> LIVRE D'OR</div>
+          <div class="panel-body">
+            <p style="font-size:13px; color:#cccccc; margin-bottom:15px;">
+              Laisse un message pour South Park Elementary ! Tous les messages sont les bienvenus (sauf ceux de Cartman).
+            </p>
+
+            <form class="guestbook-form" onsubmit="submitGuestbook(event)">
+              <input type="text" id="gb-name" placeholder="Ton nom" required maxlength="50">
+              <textarea id="gb-message" placeholder="Ton message" required maxlength="500"></textarea>
+              <button type="submit" class="btn-2000 btn-yellow">>> SIGNER LE LIVRE D'OR</button>
+            </form>
+
+            <div id="gb-confirm" style="display:none; background:#006600; border:2px solid #00ff00; color:#00ff00; padding:10px; margin:10px 0; text-align:center; font-weight:bold;">
+              [OK] Ton message a ete ajoute au livre d'or !
+            </div>
+
+            <hr class="divider">
+
+            <div id="guestbook-entries">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p style="margin-bottom:8px;">
+      *** <strong>South Park Elementary</strong> - Site officiel depuis 1997 ***
+    </p>
+    <p style="font-size:10px; color:#666666;">
+      Meilleur affichage avec Internet Explorer 6.0 • Resolution 800x600 • Optimise pour Netscape Navigator<br>
+      (c) 2001 South Park Elementary • Tous droits reserves • <a href="#">Webmaster</a> • <a href="#">Plan du site</a>
+    </p>
+    <p style="margin-top:8px; font-size:11px;">
+      <img src="https://web.archive.org/web/20091027053343/http://www.geocities.com/SiliconValley/Park/6707/ie_logo.gif" alt="IE" style="height:20px; vertical-align:middle; image-rendering:pixelated;" onerror="this.style.display='none'">
+      Site cree avec <3 et beaucoup de <span class="rainbow-text">Comic Sans MS</span>
+    </p>
+  </footer>
+
+  <!-- STUDENT MODAL -->
+  <div id="student-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:9998; align-items:center; justify-content:center; padding:20px; overflow-y:auto;" onclick="if(event.target===this) closeStudentModal()">
+    <div style="background:linear-gradient(180deg, #000066, #000033); border:4px solid #ffff00; max-width:700px; width:100%; position:relative; padding:20px;">
+      <button onclick="closeStudentModal()" style="position:absolute; top:10px; right:10px; background:#ff0000; border:2px outset #ff6666; color:#ffffff; font-size:16px; font-weight:bold; width:30px; height:30px; cursor:pointer; font-family:'Comic Sans MS';">X</button>
+      <div id="student-modal-content">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- TEACHER MODAL -->
+  <div id="teacher-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:9998; align-items:center; justify-content:center; padding:20px; overflow-y:auto;" onclick="if(event.target===this) closeTeacherModal()">
+    <div style="background:linear-gradient(180deg, #003300, #001100); border:4px solid #00ff00; max-width:700px; width:100%; position:relative; padding:20px;">
+      <button onclick="closeTeacherModal()" style="position:absolute; top:10px; right:10px; background:#ff0000; border:2px outset #ff6666; color:#ffffff; font-size:16px; font-weight:bold; width:30px; height:30px; cursor:pointer; font-family:'Comic Sans MS';">X</button>
+      <div id="teacher-modal-content">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

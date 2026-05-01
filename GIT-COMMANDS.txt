@@ -1,0 +1,109 @@
+===========================================
+COMMANDES GIT POUR DEPLOYER LE PROJET
+===========================================
+
+ETAPE 1 : INITIALISER GIT
+--------------------------
+git init
+git add .
+git commit -m "Initial commit: South Park Elementary site annee 2000"
+
+
+ETAPE 2 : CREER LE REPO SUR GITHUB
+-----------------------------------
+1. Va sur https://github.com/new
+2. Nom du repo : southpark-elementary-2000
+3. Description : Site officiel South Park Elementary style annee 2000 - Hackathon 2026
+4. Public
+5. NE COCHE PAS "Add README" (on en a deja un)
+6. Clique sur "Create repository"
+
+
+ETAPE 3 : CONNECTER TON REPO LOCAL A GITHUB
+--------------------------------------------
+Remplace TON-USERNAME par ton vrai username GitHub :
+
+git remote add origin https://github.com/TON-USERNAME/southpark-elementary-2000.git
+git branch -M main
+git push -u origin main
+
+
+ETAPE 4 : VERIFIER QUE TOUT EST POUSSE
+---------------------------------------
+git status
+git log --oneline
+
+
+===========================================
+COMMANDES COMPLETES (COPIE-COLLE)
+===========================================
+
+# Initialisation
+git init
+git add .
+git commit -m "Initial commit: South Park Elementary site annee 2000"
+
+# Connexion a GitHub (REMPLACE TON-USERNAME !)
+git remote add origin https://github.com/TON-USERNAME/southpark-elementary-2000.git
+git branch -M main
+git push -u origin main
+
+
+===========================================
+APRES LE PUSH
+===========================================
+
+1. Va sur ton repo GitHub
+2. Verifie que tous les fichiers sont la
+3. Va sur Netlify : https://app.netlify.com/
+4. "Add new site" > "Import from GitHub"
+5. Selectionne ton repo "southpark-elementary-2000"
+6. Deploy !
+
+
+===========================================
+FICHIERS QUI SERONT POUSSES
+===========================================
+
+✅ index.html
+✅ css/style.css
+✅ js/app.js
+✅ data/*.json (tous les fichiers JSON)
+✅ images/ (tous les dossiers d'images)
+✅ netlify.toml
+✅ README.md
+✅ .gitignore
+
+❌ .vscode/ (ignore)
+❌ *.md (sauf README.md)
+❌ *.backup
+❌ node_modules/
+
+
+===========================================
+EN CAS DE PROBLEME
+===========================================
+
+Si "git push" demande un mot de passe :
+1. Va sur GitHub > Settings > Developer settings
+2. Personal access tokens > Tokens (classic)
+3. Generate new token
+4. Coche "repo"
+5. Copie le token
+6. Utilise-le comme mot de passe
+
+Ou configure SSH :
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+
+
+===========================================
+MISES A JOUR FUTURES
+===========================================
+
+Pour pousser des modifications :
+
+git add .
+git commit -m "Description des changements"
+git push
+
+Netlify redeploiera automatiquement !
