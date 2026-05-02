@@ -3,6 +3,32 @@
 // VERSION CORRIGEE - Toutes les corrections appliquees
 // ============================================
 
+// ---- SNOWFLAKES EFFECT ----
+let snowflakes = [];
+
+function initSnowflakes() {
+  const container = document.body;
+  for (let i = 0; i < 50; i++) {
+    const snowflake = document.createElement('div');
+    snowflake.className = 'snowflake';
+    snowflake.innerHTML = '*';
+    snowflake.style.left = Math.random() * 100 + '%';
+    snowflake.style.top = Math.random() * 100 + '%';
+    snowflake.style.opacity = Math.random() * 0.5 + 0.3;
+    snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+    snowflake.style.animation = `snowfall ${Math.random() * 10 + 10}s linear infinite`;
+    snowflake.style.animationDelay = Math.random() * 5 + 's';
+    container.appendChild(snowflake);
+    snowflakes.push({
+      element: snowflake,
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      speed: Math.random() * 1 + 0.5,
+      opacity: Math.random() * 0.5 + 0.3
+    });
+  }
+}
+
 // ---- DATA STORE ----
 let students = [];
 let teachers = [];
@@ -10,12 +36,14 @@ let infractions = [];
 let menu = {};
 let calendar = {};
 let quotes = [];
+let news = [];
 let visitorCount = 0;
 let allQuotesVisible = false;
 
 // ---- INIT ----
 document.addEventListener('DOMContentLoaded', async () => {
   showIEPopup(); // Afficher le popup IMMÉDIATEMENT (style année 2000 !)
+  initSnowflakes(); // Initialiser la neige
   initStars();
   updateClock();
   setInterval(updateClock, 1000);
@@ -30,13 +58,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 // ---- LOAD DATA ----
 async function loadAllData() {
   try {
-    const [s, t, i, m, c, q] = await Promise.all([
+    const [s, t, i, m, c, q, n] = await Promise.all([
       fetch('data/students.json').then(r => r.json()),
       fetch('data/teachers.json').then(r => r.json()),
       fetch('data/cartman-infractions.json').then(r => r.json()),
       fetch('data/menu.json').then(r => r.json()),
       fetch('data/calendar.json').then(r => r.json()),
       fetch('data/cartman-quotes.json').then(r => r.json()),
+      fetch('data/news.json').then(r => r.json()),
     ]);
     students = s;
     teachers = t;
@@ -44,6 +73,8 @@ async function loadAllData() {
     menu = m;
     calendar = c;
     quotes = q;
+    news = n.news || [];
+    renderNews(); // Afficher les actualités
   } catch (e) {
     console.error('Error loading data:', e);
   }
@@ -51,6 +82,11 @@ async function loadAllData() {
 
 // ---- NAVIGATION ----
 function showPage(pageId) {
+  // Son de changement de page
+  if (window.audioSystem) {
+    window.audioSystem.playPageChangeSound();
+  }
+  
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.main-nav a').forEach(a => a.classList.remove('active'));
 
@@ -126,6 +162,11 @@ function renderStudents() {
 }
 
 function showStudentModal(id) {
+  // Son de clic
+  if (window.audioSystem) {
+    window.audioSystem.playClickSound();
+  }
+  
   const s = students.find(st => st.id === id);
   if (!s) return;
 
@@ -192,6 +233,11 @@ function renderTeachers() {
 }
 
 function showTeacherModal(id) {
+  // Son de clic
+  if (window.audioSystem) {
+    window.audioSystem.playClickSound();
+  }
+  
   const t = teachers.find(teacher => teacher.id === id);
   if (!t) return;
 
@@ -322,6 +368,11 @@ function renderQuotes() {
 }
 
 function showRandomQuote() {
+  // Son de clic
+  if (window.audioSystem) {
+    window.audioSystem.playClickSound();
+  }
+  
   if (quotes.length === 0) return;
   const q = quotes[Math.floor(Math.random() * quotes.length)];
   const el = document.getElementById('random-quote');
@@ -454,6 +505,11 @@ function initKennyToggle() {
 }
 
 function toggleKenny(checkbox) {
+  // Son de toggle Kenny
+  if (window.audioSystem) {
+    window.audioSystem.playKennyToggleSound();
+  }
+  
   const kenny = students.find(s => s.name === 'Kenny McCormick');
   if (!kenny) return;
   kenny.status = checkbox.checked ? 'vivant' : 'mort';
@@ -587,3 +643,27 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
+// ---- NEWS RENDERING ----
+function renderNews() {
+  const container = document.getElementById('news-container');
+  if (!container || !news || news.length === 0) return;
+
+  container.innerHTML = news.map(n => `
+    <div class="news-item" style="background:linear-gradient(135deg, #001100, #003300); border:2px solid #00ff00; padding:15px; border-radius:5px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+        <div style="font-size:14px; font-weight:bold; color:#ffff00;">
+          ${n.icon} ${n.category}
+        </div>
+        <div style="font-size:11px; color:#aaaaaa;">
+          ${n.date}
+        </div>
+      </div>
+      <div style="font-size:16px; font-weight:bold; color:#00ff00; margin-bottom:8px;">
+        ${n.title}
+      </div>
+      <div style="font-size:13px; color:#cccccc; line-height:1.6;">
+        ${n.content}
+      </div>
+    </div>
+  `).join('');
+}

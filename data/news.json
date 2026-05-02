@@ -1,0 +1,44 @@
+{
+  "news": [
+    {
+      "id": 1,
+      "date": "15 Janvier 2000",
+      "title": "Kenny McCormick : Statut Critique",
+      "content": "Kenny a ete retrouve inconscient pres de la cafeteria. Les medecins disent qu'il devrait s'en remettre... probablement.",
+      "category": "URGENT",
+      "icon": "[X_X]"
+    },
+    {
+      "id": 2,
+      "date": "14 Janvier 2000",
+      "title": "Eric Cartman Renvoye (Encore)",
+      "content": "Eric Cartman a ete renvoye pour la 3eme fois cette semaine. Principal Victoria declare : 'This is a very serious situation.'",
+      "category": "DISCIPLINE",
+      "icon": "/!\\"
+    },
+    {
+      "id": 3,
+      "date": "13 Janvier 2000",
+      "title": "Chef Prepare ses Chocolate Salty Balls",
+      "content": "Chef annonce qu'il preparera ses celebres Chocolate Salty Balls vendredi. Les eleves sont enthousiasmes !",
+      "category": "CAFETERIA",
+      "icon": "[FOOD]"
+    },
+    {
+      "id": 4,
+      "date": "12 Janvier 2000",
+      "title": "Concours Scientifique : Kyle Gagne",
+      "content": "Kyle a remporte le concours scientifique avec son projet sur les energies renouvelables. Cartman a triche mais a ete disqualifie.",
+      "category": "ACADEMIQUE",
+      "icon": "[+]"
+    },
+    {
+      "id": 5,
+      "date": "11 Janvier 2000",
+      "title": "Sortie Ski a Aspen Annulee",
+      "content": "La sortie ski a Aspen a ete annulee suite a l'incident impliquant Eric Cartman et une remontee mecanique.",
+      "category": "ACTIVITES",
+      "icon": "[X]"
+    }
+  ]
+}
