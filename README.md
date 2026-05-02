@@ -80,19 +80,12 @@ cd southpark-elementary-2000
 ```bash
 # Node.js (avec http-server)
 npx http-server -p 8000 -o --cors
-
-# Python 3
-python -m http.server 8000
-
-# PHP
-php -S localhost:8000
 ```
-
 Puis va sur `http://localhost:8000`
 
 **Note** : Un serveur local est necessaire pour charger les fichiers JSON (politique CORS).
 
----
+--
 
 ## Structure du Projet
 
@@ -142,19 +135,6 @@ Toutes les donnees sont dans des fichiers JSON dans `/data/` :
 - 5 jours de menu avec plats, chansons de Chef, notes
 - 11 evenements du calendrier scolaire
 - 25 citations de Cartman
-
----
-
-## Licence
-
-Ce projet est cree pour un hackathon et est a but educatif/humoristique.
-South Park (c) Comedy Central. Tous les droits appartiennent a leurs proprietaires respectifs.
-
----
-
-## Auteur
-
-Cree avec passion pour le hackathon 2026.
 
 ---
 
