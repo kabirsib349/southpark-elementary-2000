@@ -80,12 +80,12 @@ cd southpark-elementary-2000
 ```bash
 # Node.js (avec http-server)
 npx http-server -p 8000 -o --cors
-
+```
 Puis va sur `http://localhost:8000`
 
 **Note** : Un serveur local est necessaire pour charger les fichiers JSON (politique CORS).
 
----
+--
 
 ## Structure du Projet
 
