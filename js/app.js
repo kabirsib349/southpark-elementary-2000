@@ -1,4 +1,4 @@
-﻿// ============================================
+// ============================================
 // SOUTH PARK ELEMENTARY - Main Application JS
 // VERSION CORRIGEE - Toutes les corrections appliquees
 // ============================================
@@ -460,19 +460,12 @@ function submitGuestbook(e) {
 
 // ---- VISITOR COUNTER ----
 async function initVisitorCounter() {
-  // Try to get real visitor count from API
-  try {
-    const response = await fetch('https://api.countapi.xyz/hit/southpark-hackathon-2026/visits');
-    const data = await response.json();
-    visitorCount = data.value || 1;
-  } catch (e) {
-    // Fallback to localStorage
-    let count = parseInt(localStorage.getItem('sp-visitors') || '1337');
-    count++;
-    localStorage.setItem('sp-visitors', count);
-    visitorCount = count;
-  }
-  
+  // Compteur local (l'API countapi.xyz est morte depuis 2022)
+  let count = parseInt(localStorage.getItem('sp-visitors') || '1337');
+  count++;
+  localStorage.setItem('sp-visitors', count);
+  visitorCount = count;
+
   const el = document.getElementById('visitor-count');
   if (el) el.textContent = String(visitorCount).padStart(7, '0');
 }

@@ -251,6 +251,11 @@ body {
   animation: blink 2s step-end infinite;
 }
 
+@keyframes flamePulse {
+  0%   { transform: scale(1);    filter: brightness(1); }
+  100% { transform: scale(1.2); filter: brightness(1.4); }
+}
+
 /* ---- RAINBOW TEXT ---- */
 @keyframes rainbow {
   0% { color: #ff0000; }
@@ -1027,3 +1032,165 @@ body {
 }
 
 .tooltip:hover::after { display: block; }
+
+/* ================================================
+   PIXEL-ART GIF ANIMATIONS - Style Geocities 2000
+   ================================================ */
+
+/* ---- PIXEL FIRE (header) ---- */
+@keyframes fireRow2 {
+  0%,100% { transform: scaleX(1)   scaleY(1);   opacity:1;   }
+  33%     { transform: scaleX(1.1) scaleY(0.95); opacity:0.9; }
+  66%     { transform: scaleX(0.9) scaleY(1.05); opacity:1;   }
+}
+@keyframes fireRow3 {
+  0%,100% { transform: translateY(0px);  opacity:0.8; }
+  50%     { transform: translateY(-3px); opacity:1;   }
+}
+@keyframes fireTip {
+  0%,100% { transform: translateY(0)    scaleX(1);   opacity:0.7; }
+  33%     { transform: translateY(-4px) scaleX(0.8); opacity:1;   }
+  66%     { transform: translateY(-2px) scaleX(1.1); opacity:0.6; }
+}
+
+.pixel-fire {
+  width: 40px;
+  height: 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  image-rendering: pixelated;
+  gap: 1px;
+}
+.pixel-fire .pf-base {
+  width: 32px; height: 10px;
+  background: #cc0000;
+  box-shadow: -8px 0 0 #aa0000, 8px 0 0 #aa0000;
+  animation: fireRow2 0.3s steps(1) infinite;
+}
+.pixel-fire .pf-mid {
+  width: 28px; height: 10px;
+  background: #ff4400;
+  box-shadow: -6px 0 0 #cc2200, 6px 0 0 #cc2200;
+  animation: fireRow2 0.25s steps(1) infinite 0.1s;
+}
+.pixel-fire .pf-top {
+  width: 20px; height: 8px;
+  background: #ff9900;
+  box-shadow: -4px 0 0 #ff6600, 4px 0 0 #ff6600;
+  animation: fireRow3 0.4s steps(2) infinite;
+}
+.pixel-fire .pf-tip {
+  width: 10px; height: 6px;
+  background: #ffee00;
+  box-shadow: -2px 0 0 #ffcc00, 2px 0 0 #ffcc00;
+  animation: fireTip 0.35s steps(2) infinite 0.05s;
+}
+
+/* ---- UNDER CONSTRUCTION (sidebar) ---- */
+@keyframes ucScroll {
+  from { background-position: 0 0; }
+  to   { background-position: 32px 0; }
+}
+@keyframes ucWorker {
+  0%,100% { transform: rotate(-8deg); }
+  50%     { transform: rotate(8deg); }
+}
+@keyframes ucBlink {
+  0%,49%  { opacity: 1; }
+  50%,100%{ opacity: 0; }
+}
+
+.under-construction-gif {
+  width: 100%;
+  max-width: 150px;
+  margin: 0 auto;
+  border: 3px solid #333;
+  overflow: hidden;
+  image-rendering: pixelated;
+}
+.uc-stripe {
+  height: 12px;
+  background: repeating-linear-gradient(
+    90deg,
+    #ffcc00 0px, #ffcc00 8px,
+    #000000 8px, #000000 16px,
+    #ffcc00 16px, #ffcc00 24px,
+    #000000 24px, #000000 32px
+  );
+  background-size: 32px 12px;
+  animation: ucScroll 0.4s linear infinite;
+}
+.uc-body {
+  background: #ffff00;
+  padding: 5px 4px;
+  text-align: center;
+  line-height: 1.5;
+}
+.uc-worker {
+  font-size: 22px;
+  display: block;
+  animation: ucWorker 0.5s ease-in-out infinite;
+  margin-bottom: 2px;
+}
+.uc-text {
+  display: block;
+  font-size: 8px;
+  font-weight: bold;
+  font-family: 'Comic Sans MS', cursive;
+  color: #cc0000;
+  animation: ucBlink 0.8s step-end infinite;
+}
+
+/* ---- BADGE "NEW!" ---- */
+@keyframes newBadgePulse {
+  0%,100% { background: #ff0000; color: #ffff00; }
+  50%     { background: #ffff00; color: #ff0000; }
+}
+.gif-new-badge {
+  display: inline-block;
+  background: #ff0000;
+  color: #ffff00;
+  font-family: 'Impact', sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 2px 5px;
+  border: 2px solid #ffff00;
+  animation: newBadgePulse 0.5s steps(1) infinite;
+  vertical-align: middle;
+  letter-spacing: 1px;
+}
+
+/* ---- SPINNING STAR ---- */
+@keyframes starRotate {
+  0%   { transform: rotate(0deg)   scale(1);   color: #ffff00; }
+  25%  { transform: rotate(90deg)  scale(1.2); color: #ff9900; }
+  50%  { transform: rotate(180deg) scale(1);   color: #ffffff; }
+  75%  { transform: rotate(270deg) scale(0.8); color: #ff6600; }
+  100% { transform: rotate(360deg) scale(1);   color: #ffff00; }
+}
+.gif-star {
+  display: inline-block;
+  font-size: 16px;
+  animation: starRotate 1s steps(4) infinite;
+  color: #ffff00;
+  text-shadow: 0 0 6px #ffff00;
+}
+
+/* ---- BALLE REBONDISSANTE ---- */
+@keyframes ballBounce {
+  0%,100% { transform: translateY(0)     scaleY(1)   scaleX(1); }
+  45%     { transform: translateY(-12px) scaleY(1.1) scaleX(0.9); }
+  50%     { transform: translateY(-14px) scaleY(1.2) scaleX(0.8); }
+  90%     { transform: translateY(0)     scaleY(0.7) scaleX(1.3); }
+}
+.gif-ball {
+  display: inline-block;
+  width: 12px; height: 12px;
+  background: radial-gradient(circle at 35% 35%, #ff6666, #cc0000);
+  border-radius: 50%;
+  border: 1px solid #880000;
+  animation: ballBounce 0.7s steps(7) infinite;
+  vertical-align: middle;
+}

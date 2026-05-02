@@ -15,19 +15,21 @@
 ## Le Concept
 
 Un portail scolaire officiel de South Park Elementary, comme si il avait ete cree en l'an 2000.
+Authentique style Geocities : Comic Sans MS, fond sombre, effets neon, animations pixel-art.
 
 ### Fonctionnalites Principales
 
-- Page d'accueil avec message de bienvenue
-- Trombinoscope des eleves
-- Equipe pedagogique
-- Dossier disciplinaire de Cartman
-- Menu de la cafeteria
-- Calendrier scolaire
-- Generateur de citations
-- Livre d'or interactif
-- Toggle Kenny : Mort / Vivant
-- Widgets : Meteo, horloge, compteur de visiteurs
+- Page d'accueil avec message de bienvenue de Principal Victoria
+- Trombinoscope des eleves (8 personnages avec modal detaille)
+- Equipe pedagogique (5 professeurs avec notes et fun facts)
+- Dossier disciplinaire de Cartman (tableau complet des infractions)
+- Menu de la cafeteria avec chansons de Chef
+- Calendrier scolaire et emploi du temps
+- Generateur de citations de Cartman
+- Page Actualites de l'ecole
+- Livre d'or interactif (sauvegarde LocalStorage)
+- Toggle Kenny : Mort / Vivant (avec son et toast)
+- Widgets sidebar : Meteo, horloge en direct, compteur de visiteurs
 
 ### Features Avancees
 
@@ -43,22 +45,36 @@ Un portail scolaire officiel de South Park Elementary, comme si il avait ete cre
 - **Achievements** : 6 achievements deblocables
 - **Animations** : Particules, sons, expressions de Cartman
 
-#### 2. SYSTEME AUDIO COMPLET
-- **Musique de fond** : Theme South Park genere (8-bit)
-- **Sons d'interface** : Navigation, boutons, Kenny toggle
+#### 2. SYSTEME AUDIO
+- **Musique de fond** : Vrai theme South Park (fichier MP3 local, boucle infinie)
+- **Sons d'interface** : Navigation, boutons, Kenny toggle (8-bit via Web Audio API)
 - **Sons du mini-jeu** : Kick, impact, power-up, achievement
 - **Controles** :
   - Toggle Musique ON/OFF
   - Toggle Sons ON/OFF
   - Slider de volume (0-100%)
-  - Sauvegarde automatique des preferences
-- **Style** : Sons 8-bit authentiques (annee 2000)
+  - Sauvegarde automatique des preferences (LocalStorage)
+- **Note** : La musique demarre au premier clic (politique autoplay navigateurs modernes)
 
-#### 3. EFFETS VISUELS
-- Neige qui tombe en permanence
-- Animations fluides et responsives
-- Gradients et effets de couleur
-- Style Comic Sans MS authentique
+#### 3. ANIMATIONS PIXEL-ART (style GIFs Geocities)
+- **Flammes pixel-art** : Dans le header, de chaque cote du titre (blocs CSS animes)
+- **Under Construction** : Sidebar avec bandes jaune/noir qui defilent + bonhomme qui creuse
+- **Badge NEW!** : Rouge/jaune clignotant sur les actualites
+- **Etoile tournante** : `.gif-star` utilisable partout
+- **Balle rebondissante** : `.gif-ball` utilisable partout
+
+#### 4. INTERACTIONS STYLE WINDOWS 98
+- **[mail] Nous contacter** : Popup Hotmail authentique avec champs De/A/Objet, animation de secousse si formulaire vide
+- **[dl] Telecharger Winamp** : Fausse boite de telechargement avec barre de progression 56k (vitesse variable), s'arrete a 73% avec message d'erreur signe Cartman
+- **[++] Booster le compteur** : Incremente le compteur de visiteurs avec animation de comptage style Geocities
+
+#### 5. POPUP IE & ELEMENTS RETRO
+- Popup Internet Explorer 6 au chargement
+- Marquee ticker avec statut Kenny en temps reel
+- Curseur personnalise etoile
+- Scrollbar stylisee en violet/cyan
+- Fond etoile animee (canvas)
+- Neige qui tombe
 
 ---
 
@@ -76,7 +92,11 @@ git clone https://github.com/kabirsib349/southpark-elementary-2000.git
 cd southpark-elementary-2000
 ```
 
-2. Lance un serveur local :
+2. Ajoute le fichier audio (non inclus pour raisons de droits) :
+   - Telecharge le theme South Park en MP3
+   - Place-le dans `audio/southpark-theme.mp3`
+
+3. Lance un serveur local :
 ```bash
 # Node.js (avec http-server)
 npx http-server -p 8000 -o --cors
@@ -84,30 +104,34 @@ npx http-server -p 8000 -o --cors
 Puis va sur `http://localhost:8000`
 
 **Note** : Un serveur local est necessaire pour charger les fichiers JSON (politique CORS).
+Le fichier `audio/southpark-theme.mp3` n'est pas inclus dans le repo (droits d'auteur).
 
---
+---
 
 ## Structure du Projet
 
 ```
 southpark-elementary-2000/
-├── index.html              # Page principale
+├── index.html                 # Page principale
+├── audio/
+│   └── southpark-theme.mp3    # Theme South Park (a ajouter manuellement)
 ├── css/
-│   └── style.css          # Styles
+│   └── style.css              # Styles + animations pixel-art
 ├── js/
-│   ├── app.js             # Application JavaScript
-│   ├── minigame-kick-baby.js  # Mini-jeu
-│   └── audio-system.js    # Systeme audio
+│   ├── app.js                 # Application JavaScript principale
+│   ├── minigame-kick-baby.js  # Mini-jeu Kick the Baby
+│   └── audio-system.js        # Systeme audio (HTML5 Audio + Web Audio API)
 ├── data/
-│   ├── students.json      # Donnees des eleves
-│   ├── teachers.json      # Donnees des professeurs
+│   ├── students.json          # Donnees des eleves
+│   ├── teachers.json          # Donnees des professeurs
 │   ├── cartman-infractions.json
 │   ├── menu.json
 │   ├── calendar.json
+│   ├── news.json
 │   └── cartman-quotes.json
 ├── images/
-│   ├── students/          # Photos des eleves
-│   └── teachers/          # Photos des professeurs
+│   ├── students/              # Photos des eleves
+│   └── teachers/              # Photos des professeurs
 └── README.md
 ```
 
@@ -116,11 +140,12 @@ southpark-elementary-2000/
 ## Technologies
 
 - **HTML5** : Structure semantique
-- **CSS3** : Animations, gradients, effets
+- **CSS3** : Animations keyframes, gradients, pixel-art GIF effects
 - **JavaScript Vanilla** : Pas de framework, que du pur JS
-- **Canvas API** : Mini-jeu et animations
-- **Web Audio API** : Sons generes (8-bit)
-- **LocalStorage** : Sauvegarde des donnees
+- **Canvas API** : Mini-jeu et etoiles animees en fond
+- **HTML5 Audio API** : Musique de fond (MP3 local en boucle)
+- **Web Audio API** : Sons 8-bit generes pour les SFX
+- **LocalStorage** : Sauvegarde des preferences audio, guestbook, compteur de visiteurs
 - **Fetch API** : Chargement des donnees JSON
 
 ---
@@ -135,6 +160,7 @@ Toutes les donnees sont dans des fichiers JSON dans `/data/` :
 - 5 jours de menu avec plats, chansons de Chef, notes
 - 11 evenements du calendrier scolaire
 - 25 citations de Cartman
+- Actualites de l'ecole
 
 ---
 

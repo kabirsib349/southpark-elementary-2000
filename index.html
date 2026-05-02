@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -42,14 +42,24 @@
   <!-- HEADER -->
   <header class="site-header">
     <div class="header-content">
-      <img src="https://media.tenor.com/images/d8c7e3c0e5f5c5a5e5f5c5a5e5f5c5a5/tenor.gif" alt="Fire GIF" class="header-gif" onerror="this.style.display='none'">
+      <div class="pixel-fire" style="display:flex;">
+        <div class="pf-tip"></div>
+        <div class="pf-top"></div>
+        <div class="pf-mid"></div>
+        <div class="pf-base"></div>
+      </div>
       <div>
         <h1 class="site-title">
           *** South Park ***<br>Elementary
         </h1>
         <div class="site-subtitle">Mis en ligne : Janvier 2000</div>
       </div>
-      <img src="https://media.tenor.com/images/d8c7e3c0e5f5c5a5e5f5c5a5e5f5c5a5/tenor.gif" alt="Fire GIF" class="header-gif" onerror="this.style.display='none'">
+      <div class="pixel-fire" style="display:flex;">
+        <div class="pf-tip"></div>
+        <div class="pf-top"></div>
+        <div class="pf-mid"></div>
+        <div class="pf-base"></div>
+      </div>
     </div>
     <div class="visitor-counter">
       >> Visites : <span id="visitor-count">0000000</span>
@@ -115,10 +125,10 @@
       <div class="sidebar-widget">
         <div class="sidebar-widget-title">�� LIENS</div>
         <div class="sidebar-widget-body" style="font-size:10px; line-height:1.8;">
-          <a href="https://southpark.cc.com" target="_blank" style="color:#00ffff; text-decoration:none;">🌐 South Park Studios</a><br>
-          <a href="#" onclick="alert('Page en construction !'); return false;" style="color:#00ffff; text-decoration:none;">📧 Nous contacter</a><br>
-          <a href="#" onclick="alert('Téléchargement indisponible !'); return false;" style="color:#00ffff; text-decoration:none;">💾 Télécharger Winamp</a><br>
-          <a href="#" onclick="alert('Compteur Geocities !'); return false;" style="color:#00ffff; text-decoration:none;">🔢 Ajouter un compteur</a>
+          <a href="https://southpark.cc.com" target="_blank" style="color:#00ffff; text-decoration:none;">[www] South Park Studios</a><br>
+          <a href="#" onclick="openContactModal(); return false;" style="color:#00ffff; text-decoration:none;">[mail] Nous contacter</a><br>
+          <a href="#" onclick="openWinampModal(); return false;" style="color:#00ffff; text-decoration:none;">[dl] Telecharger Winamp</a><br>
+          <a href="#" onclick="boostCounter(); return false;" style="color:#00ffff; text-decoration:none;">[++] Booster le compteur</a>
         </div>
       </div>
 
@@ -146,8 +156,8 @@
                    onchange="changeVolume(this.value)" 
                    style="width:100%; margin:3px 0;">
           </div>
-          <div style="font-size:9px; color:#999999; text-align:center; margin-top:5px;">
-            ♪ Thème South Park ♪
+          <div style="font-size:9px; color:#ffff00; text-align:center; margin-top:5px;">
+            ♪ Thème South Park officiel ♪
           </div>
         </div>
       </div>
@@ -166,8 +176,13 @@
       </div>
 
       <!-- UNDER CONSTRUCTION -->
-      <div style="text-align:center; margin-top:10px;">
-        <img src="https://web.archive.org/web/20091027053343/http://www.geocities.com/SiliconValley/Park/6707/construction.gif" alt="Under Construction" style="width:100%; max-width:150px; image-rendering:pixelated;" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%2250%22%3E%3Crect fill=%22%23ffff00%22 width=%22150%22 height=%2250%22/%3E%3Ctext x=%2275%22 y=%2230%22 text-anchor=%22middle%22 font-size=%2212%22 fill=%22%23000%22%3EUNDER CONSTRUCTION%3C/text%3E%3C/svg%3E'">
+      <div class="under-construction-gif">
+        <div class="uc-stripe"></div>
+        <div class="uc-body">
+          <span class="uc-worker">&#x1F6A7;</span>
+          <span class="uc-text">UNDER CONSTRUCTION</span>
+        </div>
+        <div class="uc-stripe"></div>
       </div>
 
     </aside>
@@ -200,7 +215,7 @@
           <div class="panel-header">*** ACTUALITES DE L'ECOLE</div>
           <div class="panel-body">
             <ul style="font-size:13px; line-height:2; list-style:none; padding:0;">
-              <li>>>> <span class="blink new-badge">NEW</span> <strong>Kenny McCormick</strong> : Statut actuel = <span id="kenny-status-home" class="blink glow-red">[X_X] MORT</span></li>
+              <li>>>> <span class="gif-new-badge">NEW!</span> <strong>Kenny McCormick</strong> : Statut actuel = <span id="kenny-status-home" class="blink glow-red">[X_X] MORT</span></li>
               <li>/!\ <strong>Eric Cartman</strong> a ete renvoye 3 fois cette semaine</li>
               <li>>>> <strong>Chef</strong> prepare ses celebres Chocolate Salty Balls vendredi</li>
               <li>>>> <strong>Mr. Garrison</strong> a encore change de personnalite</li>
@@ -441,8 +456,8 @@
       (c) 2001 South Park Elementary • Tous droits reserves • <a href="#">Webmaster</a> • <a href="#">Plan du site</a>
     </p>
     <p style="margin-top:8px; font-size:11px;">
-      <img src="https://web.archive.org/web/20091027053343/http://www.geocities.com/SiliconValley/Park/6707/ie_logo.gif" alt="IE" style="height:20px; vertical-align:middle; image-rendering:pixelated;" onerror="this.style.display='none'">
-      Site cree avec <3 et beaucoup de <span class="rainbow-text">Comic Sans MS</span>
+      <span style="color:#00ffff; font-weight:bold;">[www]</span>
+      Site cree avec &lt;3 et beaucoup de <span class="rainbow-text">Comic Sans MS</span>
     </p>
   </footer>
 
@@ -474,6 +489,85 @@
       <p style="color:#ffffff; font-size:12px; margin-bottom:15px;">Vise la nourriture avec Ike ! Rate = Game Over !</p>
       <canvas id="game-canvas" style="border:3px solid #ffff00; background:#87CEEB; display:block; margin:0 auto; max-width:100%;" onclick="if(kickBabyGame) kickBabyGame.handleClick()"></canvas>
       <p style="color:#ff9999; font-size:11px; margin-top:10px; font-style:italic;">"Don't kick the baby!" - Kyle</p>
+    </div>
+  </div>
+
+  <!-- CONTACT MODAL -->
+  <div id="contact-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:9999; align-items:center; justify-content:center; padding:20px;" onclick="if(event.target===this) closeContactModal()">
+    <div style="width:420px; max-width:95vw; font-family:'Tahoma',sans-serif; font-size:12px; color:#000;">
+      <!-- Barre titre Windows 98 -->
+      <div style="background:linear-gradient(90deg,#000080,#1084d0); color:#fff; padding:4px 8px; display:flex; justify-content:space-between; align-items:center; font-size:12px; font-weight:bold;">
+        <span>[mail] Hotmail - Nouveau Message</span>
+        <div style="display:flex; gap:2px;">
+          <button style="background:#d4d0c8; border:2px outset #fff; width:18px; height:18px; font-size:9px; cursor:pointer; font-weight:bold;">_</button>
+          <button style="background:#d4d0c8; border:2px outset #fff; width:18px; height:18px; font-size:9px; cursor:pointer;">[]</button>
+          <button onclick="closeContactModal()" style="background:#d4d0c8; border:2px outset #fff; width:18px; height:18px; font-size:9px; cursor:pointer; font-weight:bold;">X</button>
+        </div>
+      </div>
+      <!-- Corps -->
+      <div style="background:#d4d0c8; border:2px inset #888; padding:12px;">
+        <!-- Barre d'outils Hotmail -->
+        <div style="background:#d4d0c8; border-bottom:2px solid #888; margin-bottom:10px; padding-bottom:6px; display:flex; gap:6px;">
+          <button class="ie-popup-btn" id="contact-send-btn" onclick="sendContactForm()">Envoyer</button>
+          <button class="ie-popup-btn" onclick="closeContactModal()">Annuler</button>
+          <button class="ie-popup-btn">Joindre</button>
+        </div>
+        <!-- Champs -->
+        <div style="margin-bottom:6px; display:flex; align-items:center; gap:8px;">
+          <label style="width:40px; font-weight:bold;">De :</label>
+          <input type="text" value="visiteur@hotmail.com" readonly style="flex:1; background:#fff; border:2px inset #888; padding:3px; font-size:11px; color:#666;">
+        </div>
+        <div style="margin-bottom:6px; display:flex; align-items:center; gap:8px;">
+          <label style="width:40px; font-weight:bold;">A :</label>
+          <input type="text" value="direction@southpark-elementary.edu" readonly style="flex:1; background:#fff; border:2px inset #888; padding:3px; font-size:11px; color:#666;">
+        </div>
+        <div style="margin-bottom:6px; display:flex; align-items:center; gap:8px;">
+          <label style="width:40px; font-weight:bold;">Objet :</label>
+          <input type="text" id="contact-subject" placeholder="Votre sujet..." style="flex:1; background:#fff; border:2px inset #888; padding:3px; font-size:11px; font-family:'Comic Sans MS',cursive;">
+        </div>
+        <textarea id="contact-body" placeholder="Tapez votre message ici..." style="width:100%; height:100px; background:#fff; border:2px inset #888; padding:5px; font-size:11px; font-family:'Comic Sans MS',cursive; resize:none;"></textarea>
+        <div id="contact-confirm" style="display:none; margin-top:8px; background:#c0dcc0; border:2px inset #888; padding:8px; font-size:11px; color:#006600; font-weight:bold; text-align:center;">
+          [OK] Message envoye a Principal Victoria ! Elle vous repondra... peut-etre.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WINAMP MODAL -->
+  <div id="winamp-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:9999; align-items:center; justify-content:center; padding:20px;" onclick="if(event.target===this) closeWinampModal()">
+    <div style="width:380px; max-width:95vw; font-family:'Tahoma',sans-serif; font-size:12px; color:#000;">
+      <!-- Barre titre -->
+      <div style="background:linear-gradient(90deg,#000080,#1084d0); color:#fff; padding:4px 8px; display:flex; justify-content:space-between; align-items:center; font-size:12px; font-weight:bold;">
+        <span>Telechargement de fichier</span>
+        <button onclick="closeWinampModal()" style="background:#d4d0c8; border:2px outset #fff; width:18px; height:18px; font-size:9px; cursor:pointer; font-weight:bold;">X</button>
+      </div>
+      <!-- Corps -->
+      <div style="background:#d4d0c8; border:2px inset #888; padding:14px;">
+        <div style="display:flex; gap:12px; align-items:flex-start; margin-bottom:12px;">
+          <div style="font-size:36px;">&#x1F4BE;</div>
+          <div>
+            <div style="font-weight:bold; margin-bottom:4px;">winamp5_setup.exe</div>
+            <div style="font-size:11px; color:#444;">De : www.nullsoft.com</div>
+            <div style="font-size:11px; color:#444;">Taille : 3,74 Mo</div>
+          </div>
+        </div>
+        <div style="margin-bottom:6px; font-size:11px;">Enregistrer sous :</div>
+        <div style="background:#fff; border:2px inset #888; padding:3px 6px; margin-bottom:10px; font-size:11px;">C:\Program Files\Winamp\</div>
+        <div style="font-size:11px; margin-bottom:4px;">Progression :</div>
+        <div style="background:#fff; border:2px inset #888; height:20px; margin-bottom:6px; position:relative; overflow:hidden;">
+          <div id="winamp-progress" style="height:100%; width:0%; background:linear-gradient(90deg,#000080,#1084d0); transition:width 0.1s;"></div>
+          <span id="winamp-pct" style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:bold; color:#fff; mix-blend-mode:difference;">0%</span>
+        </div>
+        <div id="winamp-status" style="font-size:11px; color:#444; margin-bottom:10px;">En attente...</div>
+        <div style="text-align:center;">
+          <button id="winamp-start-btn" class="ie-popup-btn" onclick="startWinampDownload()">Telecharger !</button>
+          <button class="ie-popup-btn" onclick="closeWinampModal()">Annuler</button>
+        </div>
+        <div id="winamp-error" style="display:none; margin-top:10px; background:#ffcccc; border:2px inset #cc0000; padding:8px; font-size:11px; font-weight:bold; color:#cc0000;">
+          [ERREUR] Telechargement interrompu !<br>
+          <span style="font-size:10px; font-weight:normal;">Cartman a supprime le fichier depuis le serveur.<br>"Respect my authoritah!"</span>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -524,13 +618,124 @@
     // Initialiser les contrôles au chargement
     document.addEventListener('DOMContentLoaded', function() {
       if (window.audioSystem) {
-        // Synchroniser les toggles avec les paramètres sauvegardés
         document.getElementById('music-toggle').checked = window.audioSystem.musicEnabled;
         document.getElementById('sfx-toggle').checked = window.audioSystem.sfxEnabled;
         document.getElementById('volume-slider').value = window.audioSystem.masterVolume * 100;
         document.getElementById('volume-display').textContent = Math.round(window.audioSystem.masterVolume * 100) + '%';
       }
     });
+
+    // ---- MODAL : NOUS CONTACTER ----
+    function openContactModal() {
+      playClickSound();
+      const m = document.getElementById('contact-modal');
+      m.style.display = 'flex';
+      document.getElementById('contact-confirm').style.display = 'none';
+      document.getElementById('contact-subject').value = '';
+      document.getElementById('contact-body').value = '';
+      const btn = document.getElementById('contact-send-btn');
+      btn.textContent = 'Envoyer';
+      btn.disabled = false;
+    }
+    function closeContactModal() {
+      document.getElementById('contact-modal').style.display = 'none';
+    }
+    function sendContactForm() {
+      const subj = document.getElementById('contact-subject').value.trim();
+      const body = document.getElementById('contact-body').value.trim();
+      if (!subj || !body) {
+        // Shake the window - year 2000 style !
+        const win = document.querySelector('#contact-modal > div');
+        win.style.animation = 'none';
+        win.style.transform = 'translateX(-8px)';
+        setTimeout(() => { win.style.transform = 'translateX(8px)'; }, 80);
+        setTimeout(() => { win.style.transform = 'translateX(-6px)'; }, 160);
+        setTimeout(() => { win.style.transform = 'translateX(6px)'; }, 240);
+        setTimeout(() => { win.style.transform = 'translateX(0)'; }, 320);
+        return;
+      }
+      const btn = document.getElementById('contact-send-btn');
+      btn.textContent = 'Envoi...';
+      btn.disabled = true;
+      setTimeout(() => {
+        document.getElementById('contact-confirm').style.display = 'block';
+        btn.textContent = 'Envoye !';
+        if (window.audioSystem) window.audioSystem.playPowerUpSound();
+      }, 1200);
+    }
+
+    // ---- MODAL : WINAMP ----
+    let winampInterval = null;
+    function openWinampModal() {
+      playClickSound();
+      const m = document.getElementById('winamp-modal');
+      m.style.display = 'flex';
+      // Reset
+      document.getElementById('winamp-progress').style.width = '0%';
+      document.getElementById('winamp-pct').textContent = '0%';
+      document.getElementById('winamp-status').textContent = 'En attente...';
+      document.getElementById('winamp-error').style.display = 'none';
+      document.getElementById('winamp-start-btn').disabled = false;
+      clearInterval(winampInterval);
+    }
+    function closeWinampModal() {
+      clearInterval(winampInterval);
+      document.getElementById('winamp-modal').style.display = 'none';
+    }
+    function startWinampDownload() {
+      document.getElementById('winamp-start-btn').disabled = true;
+      let pct = 0;
+      // Vitesse variable, comme une vraie connexion 56k !
+      const speeds = [3,1,4,2,5,1,2,3,1,4,2,3,1,2,5,3,2,1,4,2];
+      let step = 0;
+      winampInterval = setInterval(() => {
+        const increment = speeds[step % speeds.length];
+        pct = Math.min(pct + increment, 73); // S'arrete a 73% !
+        step++;
+        document.getElementById('winamp-progress').style.width = pct + '%';
+        document.getElementById('winamp-pct').textContent = pct + '%';
+        // Messages de statut style 56k
+        if (pct < 20)  document.getElementById('winamp-status').textContent = 'Connexion au serveur... (56k)';
+        else if (pct < 40) document.getElementById('winamp-status').textContent = 'Reception des donnees... 2,3 ko/s';
+        else if (pct < 60) document.getElementById('winamp-status').textContent = 'Telechargement en cours... 1,8 ko/s';
+        else document.getElementById('winamp-status').textContent = 'Presque fini... 0,9 ko/s';
+
+        if (pct >= 73) {
+          clearInterval(winampInterval);
+          // ERREUR - Cartman a tout sabote
+          setTimeout(() => {
+            document.getElementById('winamp-error').style.display = 'block';
+            document.getElementById('winamp-status').textContent = 'Echec du telechargement !';
+            if (window.audioSystem) window.audioSystem.playImpactSound();
+          }, 600);
+        }
+      }, 150);
+    }
+
+    // ---- BOOST COMPTEUR ----
+    function boostCounter() {
+      playClickSound();
+      let count = parseInt(localStorage.getItem('sp-visitors') || '1337');
+      // Ajoute un nombre aleatoire style "faux compteur Geocities"
+      const boost = Math.floor(Math.random() * 50) + 10;
+      count += boost;
+      localStorage.setItem('sp-visitors', count);
+      const el = document.getElementById('visitor-count');
+      if (el) {
+        // Animation de comptage
+        let current = count - boost;
+        const target = count;
+        const interval = setInterval(() => {
+          current += Math.ceil((target - current) / 3);
+          el.textContent = String(current).padStart(7, '0');
+          if (current >= target) {
+            el.textContent = String(target).padStart(7, '0');
+            clearInterval(interval);
+          }
+        }, 50);
+      }
+      if (window.showToast) showToast('[++] ' + boost + ' visiteurs ajoutes ! Geocities approuve !', '#00ff00');
+    }
   </script>
 </body>
 </html>
