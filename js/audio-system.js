@@ -163,7 +163,7 @@ class AudioSystem {
     }
   }
   
-  // Musique de fond - Thème South Park simplifié
+  // Musique de fond - Thème South Park amélioré
   startBackgroundMusic() {
     if (!this.initAudioContext() || !this.musicEnabled || this.musicLoop) return;
     
@@ -173,19 +173,55 @@ class AudioSystem {
   playBackgroundLoop() {
     if (!this.musicEnabled) return;
     
-    // Mélodie simple inspirée du thème South Park
-    const melody = [
-      {freq: 523, duration: 0.4}, // C
-      {freq: 587, duration: 0.4}, // D
-      {freq: 659, duration: 0.4}, // E
-      {freq: 698, duration: 0.4}, // F
-      {freq: 784, duration: 0.8}, // G
-      {freq: 659, duration: 0.4}, // E
-      {freq: 523, duration: 0.8}, // C
-      {freq: 0, duration: 1.0},   // Pause
+    // Mélodie principale inspirée du thème South Park (plus riche)
+    const mainMelody = [
+      // Intro
+      {freq: 523, duration: 0.3, harmony: 392},  // C + G
+      {freq: 587, duration: 0.3, harmony: 440},  // D + A
+      {freq: 659, duration: 0.3, harmony: 494},  // E + B
+      {freq: 698, duration: 0.3, harmony: 523},  // F + C
+      {freq: 784, duration: 0.6, harmony: 587},  // G + D
+      {freq: 659, duration: 0.3, harmony: 494},  // E + B
+      {freq: 523, duration: 0.6, harmony: 392},  // C + G
+      {freq: 0, duration: 0.2},                  // Pause
+      
+      // Variation 1
+      {freq: 659, duration: 0.3, harmony: 523},  // E + C
+      {freq: 698, duration: 0.3, harmony: 523},  // F + C
+      {freq: 784, duration: 0.3, harmony: 587},  // G + D
+      {freq: 880, duration: 0.3, harmony: 659},  // A + E
+      {freq: 784, duration: 0.6, harmony: 587},  // G + D
+      {freq: 698, duration: 0.3, harmony: 523},  // F + C
+      {freq: 659, duration: 0.6, harmony: 523},  // E + C
+      {freq: 0, duration: 0.2},                  // Pause
+      
+      // Variation 2 (plus rapide)
+      {freq: 523, duration: 0.2, harmony: 392},  // C + G
+      {freq: 587, duration: 0.2, harmony: 440},  // D + A
+      {freq: 659, duration: 0.2, harmony: 494},  // E + B
+      {freq: 784, duration: 0.4, harmony: 587},  // G + D
+      {freq: 659, duration: 0.2, harmony: 494},  // E + B
+      {freq: 587, duration: 0.2, harmony: 440},  // D + A
+      {freq: 523, duration: 0.4, harmony: 392},  // C + G
+      {freq: 0, duration: 0.2},                  // Pause
+      
+      // Finale
+      {freq: 784, duration: 0.3, harmony: 523},  // G + C
+      {freq: 880, duration: 0.3, harmony: 659},  // A + E
+      {freq: 1047, duration: 0.6, harmony: 784}, // C + G (octave)
+      {freq: 0, duration: 0.4},                  // Pause longue
     ];
     
     let noteIndex = 0;
+    let bassIndex = 0;
+    
+    // Ligne de basse (joue en parallèle)
+    const bassLine = [
+      {freq: 131, duration: 0.6},  // C
+      {freq: 147, duration: 0.6},  // D
+      {freq: 165, duration: 0.6},  // E
+      {freq: 196, duration: 0.6},  // G
+    ];
     
     const playNextNote = () => {
       if (!this.musicEnabled) {
@@ -193,10 +229,10 @@ class AudioSystem {
         return;
       }
       
-      const note = melody[noteIndex];
+      const note = mainMelody[noteIndex];
       
       if (note.freq > 0) {
-        // Jouer la note avec un volume plus faible
+        // Mélodie principale
         const oscillator = this.audioContext.createOscillator();
         const gainNode = this.audioContext.createGain();
         
@@ -207,14 +243,55 @@ class AudioSystem {
         oscillator.type = 'triangle';
         
         gainNode.gain.setValueAtTime(0, this.audioContext.currentTime);
-        gainNode.gain.linearRampToValueAtTime(this.musicVolume * this.masterVolume, this.audioContext.currentTime + 0.01);
+        gainNode.gain.linearRampToValueAtTime(this.musicVolume * this.masterVolume * 0.6, this.audioContext.currentTime + 0.01);
         gainNode.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + note.duration - 0.01);
         
         oscillator.start(this.audioContext.currentTime);
         oscillator.stop(this.audioContext.currentTime + note.duration);
+        
+        // Harmonie (accord)
+        if (note.harmony) {
+          const harmonyOsc = this.audioContext.createOscillator();
+          const harmonyGain = this.audioContext.createGain();
+          
+          harmonyOsc.connect(harmonyGain);
+          harmonyGain.connect(this.audioContext.destination);
+          
+          harmonyOsc.frequency.setValueAtTime(note.harmony, this.audioContext.currentTime);
+          harmonyOsc.type = 'sine';
+          
+          harmonyGain.gain.setValueAtTime(0, this.audioContext.currentTime);
+          harmonyGain.gain.linearRampToValueAtTime(this.musicVolume * this.masterVolume * 0.3, this.audioContext.currentTime + 0.01);
+          harmonyGain.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + note.duration - 0.01);
+          
+          harmonyOsc.start(this.audioContext.currentTime);
+          harmonyOsc.stop(this.audioContext.currentTime + note.duration);
+        }
       }
       
-      noteIndex = (noteIndex + 1) % melody.length;
+      // Ligne de basse (toutes les 2 notes)
+      if (noteIndex % 2 === 0) {
+        const bass = bassLine[bassIndex % bassLine.length];
+        const bassOsc = this.audioContext.createOscillator();
+        const bassGain = this.audioContext.createGain();
+        
+        bassOsc.connect(bassGain);
+        bassGain.connect(this.audioContext.destination);
+        
+        bassOsc.frequency.setValueAtTime(bass.freq, this.audioContext.currentTime);
+        bassOsc.type = 'sawtooth';
+        
+        bassGain.gain.setValueAtTime(0, this.audioContext.currentTime);
+        bassGain.gain.linearRampToValueAtTime(this.musicVolume * this.masterVolume * 0.4, this.audioContext.currentTime + 0.01);
+        bassGain.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + bass.duration - 0.01);
+        
+        bassOsc.start(this.audioContext.currentTime);
+        bassOsc.stop(this.audioContext.currentTime + bass.duration);
+        
+        bassIndex++;
+      }
+      
+      noteIndex = (noteIndex + 1) % mainMelody.length;
       
       this.musicLoop = setTimeout(playNextNote, note.duration * 1000);
     };
